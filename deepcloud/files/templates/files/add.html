@@ -1,7 +1,25 @@
-<form action="/files/add/" method="post">
-    {% csrf_token %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <script src="{% static 'files/js/dropzone.min.js' %}"></script>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'files/css/dropzone.min.css' %}">
+        <link rel="stylesheet" href="{% static 'files/css/style.min.css' %}">
+    </head>
+    <body>
+        <main>
+            <section>
+                <div id="dropzone">
+                    <form action="/files/add/" method="post" class="dropzone dz-clickable" enctype="multipart/form-data">
+                        {% csrf_token %}
 
-    <h1>Select file to add</h1>
-    <input type="file"></input>
-    <input type="submit" value="Send"></input>
-</form>
+                        <div class="dz-message">Drop zone
+                            <br><span class="note">Drop your images here.</span>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
